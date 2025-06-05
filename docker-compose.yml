@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: reviews_service
+    restart: always
+    ports:
+      - "8032:8032"
+    volumes:
+      - ./logs:/app/logs
+    env_file:
+      - .env
+
+networks:
+  default:
+    name: reviews_network
+    driver: bridge 
